@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 
 public class GameManager : MonoBehaviour
 {
+    public RandomCardDraw randomCardDraw;
     public float timerDuration = 60f; // 設定計時時間 (秒)
     private float remainingTime;
     public GameObject GameState;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
         platformCanvas.SetActive(true);
         cardBattleCanvas.SetActive(false);
+        GameStart();
     }
 
     void Update()
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
         timerRunning = false;
         remainingTime = 0;
         UpdateTimerDisplay();
+        //randomCardDraw.Turn();
 
         // 停止雙方動作（例如禁用控制腳本）
         //StopPlayersActions();

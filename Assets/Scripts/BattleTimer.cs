@@ -65,27 +65,6 @@ public class BattleTimer : MonoBehaviour
         SwitchToCardBattleView();
         SwitchCanvas();
     }
-    /*
-    void StopPlayersActions()
-    {
-        // 停止玩家控制邏輯，根據你的玩家控制腳本實現：
-        GameObject player1 = GameObject.Find("Player");
-        GameObject player2 = GameObject.Find("Player2");
-        platformUI.SetActive(false);
-        cardUI.SetActive(true);        
-        
-         if (player1 != null)
-        {
-            player1.GetComponent<PlayerController2D>().enabled = false; // 禁用控制腳本
-            Debug.Log("停止動作");
-        }
-
-        if (player2 != null)
-        {
-            player2.GetComponent<PlayerController2D>().enabled = false; // 禁用控制腳本
-            Debug.Log("停止動作");
-        }
-        */
 
     void SwitchCanvas()
     {

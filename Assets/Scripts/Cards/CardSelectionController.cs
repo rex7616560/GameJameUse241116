@@ -22,7 +22,7 @@ public class CardSelectionController : MonoBehaviour
                 if (card != null)
                 {
                     Debug.Log("ccc");
-                    card.OnCardClicked();  // 點擊卡牌後，觸發相應的效果
+                   // card.OnCardClicked();  // 點擊卡牌後，觸發相應的效果
                 }
             }
         }

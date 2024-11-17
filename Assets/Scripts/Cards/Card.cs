@@ -1,45 +1,28 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 public class Card : MonoBehaviour
 {
-    [LabelText("卡片資料")]
-    public CardInfo CardInfo;
-    [LabelText("卡牌名稱")]
-    [ReadOnly]
-    public string CardName;
-    [ReadOnly]
-    public int value;
-    [LabelText("卡牌類型")]
-    [ReadOnly]
-    public CardType cardType;  // 顯示卡牌的類型
-    private PlayerHealth playerHealth;  // 玩家血量管理
+    public CardInfo cardInfo;  // 卡片資料 (指向 CardInfo 實例)
 
-    void Start()
+    // 這是玩家1的血量管理 (你也可以做成指向對方玩家的方式)
+    public PlayerHealth targetPlayerHealth; // 對應的玩家血量物件
+
+    // 當卡片被使用時
+    public void UseCard()
     {
-        //playerHealth = GameObject.Find("Player1").GetComponent<PlayerHealth>();
-        if(CardInfo != null)
+        if (cardInfo.cardType == CardType.Attack)
         {
-            CardName = CardInfo.CardName;
-            value = CardInfo.CardValue;
-            cardType = CardInfo.cardType;
+            // 這張卡是攻擊卡，對對方造成傷害
+            targetPlayerHealth.TakeDamage(cardInfo.CardValue);
         }
-    }
-
-    // 當卡牌被點擊時觸發的事件
-    public void OnCardClicked()
-    {
-        /*if (playerHealth != null)
+        else if (cardInfo.cardType == CardType.Heal)
         {
-            if (cardType == CardType.Damage)
-            {
-                playerHealth.TakeDamage(value);  // 傷害卡，減少血量
-            }
-            else if (cardType == CardType.Heal)
-            {
-                playerHealth.Heal(value);  // 回復卡，增加血量
-            }
-        }*/
-        Destroy(this.gameObject);
+            // 這張卡是治療卡，恢復玩家血量
+            targetPlayerHealth.Heal(cardInfo.CardValue);
+        }
+        else
+        {
+            Debug.Log("這張卡沒有特殊效果");
+        }
     }
 }

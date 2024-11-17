@@ -18,3 +18,4 @@ MonoBehaviour:
   isCardHaveEffect: 0
   CardEffect: 
   CardEffectText: "\u5BC6\u65AF\u5361\u9B54\u65AF\u5361,\u64CD\u4F60\u5ABD:\n\u9020\u621030\u9EDE\u50B7\u5BB3"
+  cardSprite: {fileID: 21300000, guid: 695e2686bedb9c04591c017fcca8bd3e, type: 3}
