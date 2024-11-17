@@ -5,38 +5,28 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;      // 最大血量
-    public int currentHealth;        // 當前血量
-    public Slider healthSlider;      // 連結到 UI 的血條 Slider
+    public int maxHealth = 100; // 玩家最大血量
+    public int currentHealth; // 玩家當前血量
 
     void Start()
     {
-        currentHealth = maxHealth;  // 初始化血量
-        UpdateHealthUI();  // 初始更新血條顯示
+        // 初始化血量
+        currentHealth = maxHealth;
     }
 
-    // 減少血量的方法
     public void TakeDamage(int damage)
     {
+        // 扣除血量
         currentHealth -= damage;
-        if (currentHealth < 0) currentHealth = 0;
-        UpdateHealthUI();  // 更新血條
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // 確保血量在範圍內
+        Debug.Log($"玩家受到傷害，當前血量：{currentHealth}");
     }
 
-    // 增加血量的方法
-    public void Heal(int healAmount)
+    public void Heal(int amount)
     {
-        currentHealth += healAmount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
-        UpdateHealthUI();  // 更新血條
-    }
-
-    // 更新血條顯示的方法
-    private void UpdateHealthUI()
-    {
-        if (healthSlider != null)
-        {
-            healthSlider.value = (float)currentHealth / maxHealth;  // 更新 UI 顯示比例
-        }
+        // 恢復血量
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // 確保血量在範圍內
+        Debug.Log($"玩家恢復生命，當前血量：{currentHealth}");
     }
 }

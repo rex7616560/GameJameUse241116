@@ -14,6 +14,6 @@ public class Item : MonoBehaviour
     public Sprite itemSprite;
     private void Start()
     {
-        itemSprite=gameObject.GetComponent<Sprite>();
+        itemSprite=gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 }

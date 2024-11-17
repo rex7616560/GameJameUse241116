@@ -6,7 +6,10 @@ using DG.Tweening;
 
 public class PlayerController2D : MonoBehaviour
 {
-    public Rigidbody2D Rigidbody;
+    private Rigidbody2D Rigidbody;
+
+    [LabelText("玩家資訊")]
+    public PlayerInfo PlayerInfo;
 
     [LabelText("速度")]
     public float PlayerSpeed;

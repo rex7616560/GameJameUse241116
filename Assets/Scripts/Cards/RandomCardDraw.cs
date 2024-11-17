@@ -23,12 +23,12 @@ public class RandomCardDraw : MonoBehaviour
 
     void Start()
     {
-        GenerateRandomCards(numberOfCardsToGenerate);
+        /*GenerateRandomCards(numberOfCardsToGenerate);
        // Card[] foundCards = FindObjectsOfType<Card>();
         //cardPool.AddRange(foundCards);
         // 抽卡並分配給玩家
         AssignCardsToPlayer(player1, 4);
-        AssignCardsToPlayer(player2, 4);
+        AssignCardsToPlayer(player2, 4);*/
     }
     /// <summary>
     /// 生成卡片
@@ -53,9 +53,7 @@ public class RandomCardDraw : MonoBehaviour
             Card newCard = newCardObj.GetComponent<Card>();
             if (newCard != null)
             {
-                newCard.cardType = (cardType == 0) ? Card.CardType.Damage : Card.CardType.Heal;
-                Debug.Log($"Generated Card {newCard.name} (Type: {newCard.cardType})");
-                //newCard.value = Random.Range(5, 20); // 隨機設置數值
+
             }
             cardPool.Add(newCard); // 添加到卡片池
         }
